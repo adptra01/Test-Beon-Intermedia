@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import LayoutLogin from "../components/LayoutLogin";
+import LayoutLogin from "../components/auth/LayoutLogin";
 
 export default function Login() {
   const { login } = useAuth();

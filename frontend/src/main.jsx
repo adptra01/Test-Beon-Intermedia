@@ -4,13 +4,13 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
-import Layout from './components/Layout';           // dashboard layout
-import LayoutLogin from './components/LayoutLogin'; // login layout
+import Layout from './components/app/Layout';           // dashboard layout
+import LayoutLogin from './components/auth/LayoutLogin'; // login layout
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Residents from './pages/Residents';
 
-import PrivateRoute from './components/PrivateRoute';
+import PrivateRoute from './components/auth/PrivateRoute';
 import './app/globals.css';  // Import Tailwind CSS global styles
 
 
@@ -40,7 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           >
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<Dashboard />} />
-            <Route path="residents" element={<Residents />} />   
+            <Route path="residents" element={<Residents />} />
           </Route>
 
           {/* fallback: kalau URL lain, redirect ke login */}
