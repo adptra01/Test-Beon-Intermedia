@@ -100,7 +100,7 @@ php artisan l5-swagger:generate
 
 ---
 
-## Frontend Progress
+## Frontend React JS
 
 Aplikasi frontend dibangun menggunakan **React.js + Vite + TailwindCSS**, dengan integrasi ke backend melalui **Laravel Sanctum Auth** dan **REST API**.
 
