@@ -4,8 +4,6 @@
 
 Aplikasi backend ini dirancang untuk mendukung sistem administrasi RT, mencakup pengelolaan data penghuni, rumah, pembayaran iuran, dan pengeluaran operasional bulanan. Backend dibangun menggunakan **Laravel 10** dan mendukung dokumentasi API otomatis menggunakan **Swagger (L5 Swagger)**.
 
----
-
 ### **Fitur Utama**
 
 * CRUD untuk:
@@ -20,13 +18,10 @@ Aplikasi backend ini dirancang untuk mendukung sistem administrasi RT, mencakup 
 * Validasi berbasis **Form Request**
 * Struktur API Resourceful
 
----
-
 ### Entity Relationship Diagram (ERD)
 
 ![ERD](ERD.svg)
 
----
 
 ### **Instalasi & Setup**
 
@@ -64,7 +59,6 @@ php artisan migrate --seed
 php artisan serve
 ```
 
----
 
 ### **Dokumentasi API dengan Swagger**
 
@@ -92,7 +86,6 @@ php artisan l5-swagger:generate
 | Payments       | `/api/payments`        | Data pembayaran bulanan   |
 | Expenses       | `/api/expenses`        | Data pengeluaran bulanan  |
 
----
 
 ### **Autentikasi API (Sanctum)**
 
