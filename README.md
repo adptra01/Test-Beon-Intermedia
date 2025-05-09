@@ -1,13 +1,12 @@
 # Iuran RT - Test Progress
 
-## Backend Progress
+## Backend Laravel
 
 Aplikasi backend ini dirancang untuk mendukung sistem administrasi RT, mencakup pengelolaan data penghuni, rumah, pembayaran iuran, dan pengeluaran operasional bulanan. Backend dibangun menggunakan **Laravel 10** dan mendukung dokumentasi API otomatis menggunakan **Swagger (L5 Swagger)**.
 
 ### **Fitur Utama**
 
 * CRUD untuk:
-
   * Penghuni (`residents`)
   * Rumah (`houses`)
   * Hubungan rumah-penghuni (`house_residents`)
@@ -22,15 +21,16 @@ Aplikasi backend ini dirancang untuk mendukung sistem administrasi RT, mencakup 
 
 ![ERD](ERD.svg)
 
+---
 
-### **Instalasi & Setup**
+### **Instalasi & Setup Backend**
 
 #### 1. Clone Repositori
 
 ```bash
 git clone https://github.com/username/iuran-rt-backend.git
 cd iuran-rt-backend
-```
+````
 
 #### 2. Instal Dependensi
 
@@ -59,6 +59,7 @@ php artisan migrate --seed
 php artisan serve
 ```
 
+---
 
 ### **Dokumentasi API dengan Swagger**
 
@@ -75,6 +76,7 @@ Jika belum tersedia, generate dokumentasi dengan:
 php artisan l5-swagger:generate
 ```
 
+---
 
 ### **Struktur CRUD API**
 
@@ -86,40 +88,80 @@ php artisan l5-swagger:generate
 | Payments       | `/api/payments`        | Data pembayaran bulanan   |
 | Expenses       | `/api/expenses`        | Data pengeluaran bulanan  |
 
+---
 
 ### **Autentikasi API (Sanctum)**
 
-| Endpoint        | Method | Deskripsi              |
-| --------------- | ------ | ---------------------- |
-| `/api/login`    | POST   | Login pengguna         |
-| `/api/logout`   | POST   | Logout (auth\:sanctum) |
-| `/api/user`     | GET    | Ambil user yang login  |
+| Endpoint      | Method | Deskripsi              |
+| ------------- | ------ | ---------------------- |
+| `/api/login`  | POST   | Login pengguna         |
+| `/api/logout` | POST   | Logout (auth\:sanctum) |
+| `/api/user`   | GET    | Ambil user yang login  |
 
 ---
 
 ## Frontend Progress
 
-#### 1. Mengelola Penghuni (Residents)
+Aplikasi frontend dibangun menggunakan **React.js + Vite + TailwindCSS**, dengan integrasi ke backend melalui **Laravel Sanctum Auth** dan **REST API**.
 
-- Fitur ini sudah sepenuhnya diimplementasikan di frontend.
-- Mendukung penambahan, pengubahan, dan penghapusan data penghuni.
-- Atribut penghuni meliputi:
-  - Nama lengkap
-  - Foto KTP
-  - Status penghuni (kontrak/tetap)
-  - Nomor telepon
-  - Status menikah
-- Halaman Penghuni menampilkan daftar penghuni dengan atribut tersebut dan mendukung operasi CRUD dengan validasi form.
+---
 
-#### 2. Mengelola Rumah (Houses)
+### **Panduan Instalasi Frontend (React)**
 
-- Belum ditemukan implementasi fitur ini di frontend.
-- Fitur yang belum ada meliputi penambahan/pengubahan rumah, pengelolaan penghuni rumah, catatan historis penghuni, riwayat pembayaran, dan status rumah (dihuni/tidak dihuni).
+#### 1. Masuk ke direktori frontend
 
-#### 3. Mengelola Pembayaran (Payments)
+```bash
+cd frontend
+```
 
-- Belum ditemukan implementasi fitur ini di frontend.
-- Fitur yang belum ada meliputi penambahan data pembayaran, pengelolaan iuran bulanan dan tahunan, serta laporan pemasukan dan pengeluaran.
+#### 2. Instal dependensi
+
+```bash
+npm install
+```
+
+#### 3. Konfigurasi environment
+
+Buat file `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Edit variabel berikut:
+
+```env
+VITE_API_URL=http://localhost:8000/api
+VITE_API_BASE_URL=http://localhost:8000
+```
+
+#### 4. Jalankan React Dev Server
+
+```bash
+npm run dev
+```
+
+Akses di: `http://localhost:5173`
+
+---
+
+### **Status Fitur Frontend**
+
+#### ✅ Mengelola Penghuni (Residents)
+
+* CRUD lengkap dengan validasi
+* Upload foto KTP
+* Tabel list penghuni + form input/edit
+
+#### ❌ Mengelola Rumah (Houses)
+
+* Belum tersedia
+
+#### ❌ Mengelola Pembayaran (Payments)
+
+* Belum tersedia
+
+---
 
 ## Lisensi
 
