@@ -1,12 +1,34 @@
-# Iuran RT - Test Progress
+### Iuran RT - Test Progress
 
-## Backend Laravel
+#### Requirement Minimum
+
+Sebelum instalasi, pastikan sistem Anda telah memenuhi requirement berikut:
+
+##### Backend
+
+* **Laravel**: v10.48.29
+* **PHP**: v8.1.10
+* **Database**: MySQL / MariaDB
+* **Composer**: v2.x
+
+##### Frontend
+
+* **Node.js**: ≥ v18.x
+* **npm**: ≥ v9.x
+* **React**: v19.1.0
+* **Vite**: v6.3.5
+* **TailwindCSS**: v4.1.5
+
+---
+
+#### Backend Laravel
 
 Aplikasi backend ini dirancang untuk mendukung sistem administrasi RT, mencakup pengelolaan data penghuni, rumah, pembayaran iuran, dan pengeluaran operasional bulanan. Backend dibangun menggunakan **Laravel 10** dan mendukung dokumentasi API otomatis menggunakan **Swagger (L5 Swagger)**.
 
-### **Fitur Utama**
+##### **Fitur Utama**
 
 * CRUD untuk:
+
   * Penghuni (`residents`)
   * Rumah (`houses`)
   * Hubungan rumah-penghuni (`house_residents`)
@@ -17,28 +39,28 @@ Aplikasi backend ini dirancang untuk mendukung sistem administrasi RT, mencakup 
 * Validasi berbasis **Form Request**
 * Struktur API Resourceful
 
-### Entity Relationship Diagram (ERD)
+##### Entity Relationship Diagram (ERD)
 
 ![ERD](ERD.svg)
 
 ---
 
-### **Instalasi & Setup Backend**
+##### **Instalasi & Setup Backend**
 
-#### 1. Clone Repositori
+###### 1. Clone Repositori
 
 ```bash
 git clone https://github.com/username/iuran-rt-backend.git
 cd iuran-rt-backend
-````
+```
 
-#### 2. Instal Dependensi
+###### 2. Instal Dependensi
 
 ```bash
 composer install
 ```
 
-#### 3. Konfigurasi `.env`
+###### 3. Konfigurasi `.env`
 
 ```bash
 cp .env.example .env
@@ -47,13 +69,13 @@ php artisan key:generate
 
 Atur koneksi database di `.env`.
 
-#### 4. Migrasi & Seeding
+###### 4. Migrasi & Seeding
 
 ```bash
 php artisan migrate --seed
 ```
 
-#### 5. Jalankan Server
+###### 5. Jalankan Server
 
 ```bash
 php artisan serve
@@ -61,7 +83,7 @@ php artisan serve
 
 ---
 
-### **Dokumentasi API dengan Swagger**
+##### **Dokumentasi API dengan Swagger**
 
 Swagger otomatis menghasilkan dokumentasi dari anotasi `@OA` yang ditulis di controller.
 Setelah setup berhasil, akses dokumentasi melalui:
@@ -78,7 +100,7 @@ php artisan l5-swagger:generate
 
 ---
 
-### **Struktur CRUD API**
+##### **Struktur CRUD API**
 
 | Resource       | Endpoint               | Keterangan                |
 | -------------- | ---------------------- | ------------------------- |
@@ -90,7 +112,7 @@ php artisan l5-swagger:generate
 
 ---
 
-### **Autentikasi API (Sanctum)**
+##### **Autentikasi API (Sanctum)**
 
 | Endpoint      | Method | Deskripsi              |
 | ------------- | ------ | ---------------------- |
@@ -100,27 +122,27 @@ php artisan l5-swagger:generate
 
 ---
 
-## Frontend React JS
+#### Frontend React JS
 
 Aplikasi frontend dibangun menggunakan **React.js + Vite + TailwindCSS**, dengan integrasi ke backend melalui **Laravel Sanctum Auth** dan **REST API**.
 
 ---
 
-### **Panduan Instalasi Frontend (React)**
+##### **Panduan Instalasi Frontend (React)**
 
-#### 1. Masuk ke direktori frontend
+###### 1. Masuk ke direktori frontend
 
 ```bash
 cd frontend
 ```
 
-#### 2. Instal dependensi
+###### 2. Instal dependensi
 
 ```bash
 npm install
 ```
 
-#### 3. Konfigurasi environment
+###### 3. Konfigurasi environment
 
 Buat file `.env`:
 
@@ -135,7 +157,7 @@ VITE_API_URL=http://localhost:8000/api
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
-#### 4. Jalankan React Dev Server
+###### 4. Jalankan React Dev Server
 
 ```bash
 npm run dev
@@ -143,26 +165,40 @@ npm run dev
 
 Akses di: `http://localhost:5173`
 
+###### 5. Login
+
+Email : [test@example.com](mailto:test@example.com)
+Password : password
+
 ---
 
-### **Status Fitur Frontend**
+##### **Status Fitur Frontend**
 
-#### ✅ Mengelola Penghuni (Residents)
+###### ✅ Mengelola Penghuni (Residents)
 
 * CRUD lengkap dengan validasi
 * Upload foto KTP
 * Tabel list penghuni + form input/edit
 
-#### ❌ Mengelola Rumah (Houses)
+###### ❌ Mengelola Rumah (Houses)
 
 * Belum tersedia
 
-#### ❌ Mengelola Pembayaran (Payments)
+###### ❌ Mengelola Pembayaran (Payments)
 
 * Belum tersedia
 
 ---
 
-## Lisensi
+##### **Hasil Pengujian**
+
+Seluruh fitur yang telah berjalan dapat dilihat pada **folder `screenshot/`** di dalam repositori.
+
+---
+
+#### Lisensi
 
 Proyek ini dikembangkan untuk keperluan seleksi dan pembelajaran.
+
+---
+
