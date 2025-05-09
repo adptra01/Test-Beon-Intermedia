@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens; // ✅ Tambahkan ini
 
 /**
  * @OA\Schema(
@@ -63,9 +66,10 @@ use Illuminate\Database\Eloquent\Model;
  *          format="date-time"
  *      )
  * )
- */ class User extends Model
+ */
+class User extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable; // ✅ Pastikan trait HasApiTokens dipakai
 
     public $table = 'users';
 
@@ -76,10 +80,16 @@ use Illuminate\Database\Eloquent\Model;
         'password',
     ];
 
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
     protected $casts = [
         'name' => 'string',
         'email' => 'string',
-        'password' => 'string',
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
         'remember_token' => 'string',
     ];
 
